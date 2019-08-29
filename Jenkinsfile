@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
   agent any
   tools{
       maven '3.5.3'
@@ -12,4 +12,4 @@ pipeline {
       }
     }
   }
-}
+}*/
