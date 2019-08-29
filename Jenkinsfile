@@ -3,12 +3,7 @@ pipeline {
   stages {
     stage('myStage'){
       steps {
-        sh 'ls -la' 
-      }
-    }
-    stage('Build') {
-      steps { 
-        sh 'ls' 
+        mvn install 
       }
     }
   }
