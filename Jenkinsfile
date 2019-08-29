@@ -1,9 +1,14 @@
 pipeline {
   agent any
+  tools{
+      maven '3.5.3'
+      jdk 'jdk8' 
+  }
   stages {
-    stage('myStage'){
+    stage('Teste do Thiago'){
       steps {
-        sh 'mvn install' 
+        echo 'o loco meu rsrsrsrs'
+        sh 'mvn install'
       }
     }
   }
