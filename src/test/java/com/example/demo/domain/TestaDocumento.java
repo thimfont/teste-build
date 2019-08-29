@@ -24,6 +24,13 @@ public class TestaDocumento {
     }
 
     @Test
+    public void aoCriarDocumentoInformandoTextoLancarException() {
+        excecao.expect(RuntimeException.class);
+        excecao.expectMessage("Apenas números devem ser informados ao criar um documento");
+        new Documento("abcdefg");
+    }
+
+    @Test
     public void aoCriaDocumentoInformandoCpfComMaisNumerosLancarException() {
         excecao.expect(RuntimeException.class);
         excecao.expectMessage("Não foi possível identificar se o número é um CNPJ ou CPF");
@@ -54,7 +61,7 @@ public class TestaDocumento {
     }
 
     @Test
-    public void aoCriarDocumentoInformandoCpfSemMascaraRetornarTipoCPF(){
+    public void aoCriarDocumentoInformandoCpfSemMascaraRetornarTipoCPF() {
         final String CPFSemMascara = "12345678945";
         Documento documento = new Documento(CPFSemMascara);
         Assert.assertEquals(documento.getTipo(), Documento.Tipo.CPF);
@@ -91,7 +98,7 @@ public class TestaDocumento {
     }
 
     @Test
-    public void aoCriarDocumentoInformandoCnpjSemMascaraRetornarTipoCNPJ(){
+    public void aoCriarDocumentoInformandoCnpjSemMascaraRetornarTipoCNPJ() {
         final String CNPJSemMascara = "47483765000193";
         Documento documento = new Documento(CNPJSemMascara);
         Assert.assertEquals(documento.getTipo(), Documento.Tipo.CNPJ);

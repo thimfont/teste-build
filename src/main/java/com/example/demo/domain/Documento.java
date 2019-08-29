@@ -9,6 +9,9 @@ public class Documento {
             throw new RuntimeException("Número de documento é obrigatório");
 
         String numeroSemPontuacao = CPF_CNPJ.replaceAll("[^0-9]", "");
+        if (!numeroSemPontuacao.matches("[0-9]+"))
+            throw new RuntimeException("Apenas números devem ser informados ao criar um documento");
+
         if (numeroSemPontuacao.length() != 11 && numeroSemPontuacao.length() != 14)
             throw new RuntimeException("Não foi possível identificar se o número é um CNPJ ou CPF");
 
